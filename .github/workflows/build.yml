@@ -12,5 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies and run tests
-      run: mvn install -pl textimager-uima-types && mvn compile -pl textimager-pipeline-annotator && mvn test -pl textimager-pipeline-annotator
+    - name: Install dependencies and compile project
+      run: mvn compile
+    - name: Run uima textimager type
+      run: mvn install -pl textimager-uima-type
+    - name: Run tests
+      run: mvn test -pl textimager-pipeline-annotator
