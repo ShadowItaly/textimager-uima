@@ -13,8 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies and compile project
-      run: mvn compile
+      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn compile
     - name: Run uima textimager type
-      run: mvn install
+      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn install
     - name: Run tests
-      run: mvn test -pl textimager-pipeline-annotator
+      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn test -pl textimager-pipeline-annotator
