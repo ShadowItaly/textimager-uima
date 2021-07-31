@@ -1,0 +1,20 @@
+name: Build
+
+on:
+  push:
+    branches: [ pipeline_annotator ]
+  pull_request:
+    branches: [ pipeline_annotator ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: mvn compile
+    - name: Install dependencies
+      run: mvn install -pl textimager-uima-types
+    - name: Run tests
+      run: mvn test -pl textimager-pipeline-annotator
