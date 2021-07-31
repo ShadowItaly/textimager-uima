@@ -12,8 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: mvn compile
     - name: Install dependencies
       run: mvn install -pl textimager-uima-types
     - name: Run tests
