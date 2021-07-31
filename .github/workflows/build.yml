@@ -15,6 +15,6 @@ jobs:
     - name: Install dependencies and compile project
       run: mvn compile
     - name: Run uima textimager type
-      run: mvn install -pl textimager-uima-types
+      run: mvn install
     - name: Run tests
       run: mvn test -pl textimager-pipeline-annotator
