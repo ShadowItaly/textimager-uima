@@ -15,6 +15,6 @@ jobs:
     - name: Install dependencies and compile project
       run: JAVA_HOME=$JAVA_HOME_8_X64 mvn compile
     - name: Run uima textimager type
-      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn install
+      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn install -DskipTests
     - name: Run tests
       run: JAVA_HOME=$JAVA_HOME_8_X64 mvn test -pl textimager-pipeline-annotator
