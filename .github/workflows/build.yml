@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Init submodules
+      run: git submodule init && git submodule update
     - name: Install dependencies and compile project
       run: JAVA_HOME=$JAVA_HOME_8_X64 mvn compile
     - name: Run uima textimager type
