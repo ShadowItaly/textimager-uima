@@ -126,7 +126,7 @@
 		<module>textimager-uima-steps</module>
 		<module>textimager-uima-gervader</module>
 		<module>textimager-uima-bert-sentiment</module>
-<!--		<module>jcore-base/jcore-types</module> -->
+		<module>jcore-base/jcore-types</module>
 <!--		<module>textimager-uima-julie</module> -->
 		<module>textimager-pipeline-annotator</module>
     </modules>
