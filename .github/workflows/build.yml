@@ -12,11 +12,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: joschi/setup-jdk@v2
+      with:
+        java-version: '11' # The OpenJDK version to make available on the path
+        architecture: 'x64' # defaults to 'x64'
     - name: Init submodules
-      run: git submodule init && git submodule update
+      run: git submodule update --init --recursive
     - name: Install dependencies and compile project
-      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn compile
+      run: mvn compile
     - name: Run uima textimager type
-      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn install -DskipTests
+      run: mvn install -DskipTests
     - name: Run tests
-      run: JAVA_HOME=$JAVA_HOME_8_X64 mvn test -pl textimager-pipeline-annotator
+      run: mvn test -pl textimager-pipeline-annotator
