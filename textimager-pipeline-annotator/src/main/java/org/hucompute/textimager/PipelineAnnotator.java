@@ -31,7 +31,7 @@ public class PipelineAnnotator extends JCasAnnotator_ImplBase {
     for(int i = 0; i < _current_pipeline.length(); i++) {
       PipelineAnnotation pipe = new PipelineAnnotation(aJCas);
       pipe.setAnnotator_name(_current_pipeline.getJSONObject(i).getString("name"));
-      pipe.setSettings(_current_pipeline.getJSONObject(i).getString("annotator_settings"));
+      pipe.setSettings(_current_pipeline.getJSONObject(i).getJSONObject("annotator_settings").toString());
       pipe.addToIndexes();
     }
   }
