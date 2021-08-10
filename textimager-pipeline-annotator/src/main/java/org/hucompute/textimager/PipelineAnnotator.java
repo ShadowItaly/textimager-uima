@@ -15,6 +15,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.json.JSONArray;
+import org.apache.uima.cas.CASException;
 import org.json.JSONObject;
 
 
@@ -33,6 +34,7 @@ public class PipelineAnnotator extends JCasAnnotator_ImplBase {
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
       Iterator<String> keys = _current_pipeline.keys();
 
+      try{
       while(keys.hasNext()) {
         String key = keys.next();
         String full_qualified_key = new String();
@@ -46,6 +48,10 @@ public class PipelineAnnotator extends JCasAnnotator_ImplBase {
           pipe.setSettings(pipeline.getJSONObject(i).getJSONObject("annotator_settings").toString());
           pipe.addToIndexes();
         }
+      }
+      }
+      catch(CASException e) {
+        e.printStackTrace();
       }
   }
 }
