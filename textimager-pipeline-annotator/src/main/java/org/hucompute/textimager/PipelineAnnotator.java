@@ -38,6 +38,8 @@ public class PipelineAnnotator extends JCasAnnotator_ImplBase {
         String full_qualified_key = new String();
         full_qualified_key = "_pipeline_hucompute_"+key;
         JCas jcas_view = aJCas.createView(full_qualified_key);
+        jcas_view.setDocumentLanguage(aJCas.getDocumentLanguage());
+        jcas_view.setDocumentText(aJCas.getDocumentText());
 
         JSONArray pipeline = _current_pipeline.getJSONArray(key);
         for(int i = 0; i < pipeline.length(); i++) {
